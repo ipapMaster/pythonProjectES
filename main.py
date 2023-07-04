@@ -1,11 +1,14 @@
 import json  # Java Script Object Notation
 
-pets = {
-    'name': 'Barsik',
-    'age': 12,
-    'meals': ['Purina', 'Wiskas'],
-    'owner': {'fname': 'John', 'sname': 'Smith'}
-}
+with open('pets.json') as pet_file:
+    data = json.load(pet_file)
 
-with open('pets.json', 'w') as pet_file:
-    json.dump(pets, pet_file)
+for item in data:
+    if type(data[item]) == list:
+        print(item, ', '.join(data[item]))
+    elif type(data[item]) == dict:
+        print(item)
+        for k, v in data[item].items():
+            print(k, v)
+    else:
+        print(item, data[item])
