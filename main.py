@@ -1,11 +1,11 @@
 import json  # Java Script Object Notation
 
-weekdays = ['Понедельник', 'Вторник', 'Среда', 'Четверг',
-            'Пятница', 'Суббота', 'Воскресенье']
+pets = {
+    'name': 'Barsik',
+    'age': 12,
+    'meals': ['Purina', 'Wiskas'],
+    'owner': {'fname': 'John', 'sname': 'Smith'}
+}
 
-
-week_dict = {key: val for key, val in enumerate(weekdays)}
-
-data = json.dumps(week_dict)
-
-print(data)
+with open('pets.json', 'w') as pet_file:
+    json.dump(pets, pet_file)
